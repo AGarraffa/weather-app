@@ -18,3 +18,7 @@ select {
 #countries {
     width: 420px;
 }
+
+#states {
+    display: none;
+}
