@@ -396,19 +396,58 @@ submitBtn.addEventListener("click", function(event) {
     })
     .then(function(data){
 
-      let daily = data.daily
-      console.log(`Today's high is ${daily[0].temp.max}`)
+      let current = data.current;
+      let daily = data.daily;
+
+      console.log(`The current temperature is ${current.temp}`)
+      console.log(`Today's high is ${daily[0].temp.max}`);
       
 
 
       // use this for auto populating with the weather icons
-      let icon = daily[0].weather[0].icon
-      console.log(icon)
+      // let icon = daily[0].weather[0].icon
+      // console.log(icon)
 
-      document.getElementById('wicon').src = `http://openweathermap.org/img/wn/${icon}.@2xpng`
+
+      // format for the weather icons
+      // document.getElementById('wicon').src = `http://openweathermap.org/img/wn/${icon}@2x.png`
+
+      renderCurrentWeather(current);
+
     })
 
   }
+
+function renderCurrentWeather(current) {
+  
+  document.getElementById('current-weather').style.visibility = 'visible'
+
+  // renders current weather
+  document.getElementById('current-temp').textContent = `Current Temperature: ${current.temp}`;
+
+  document.getElementById('feels-like').textContent = `Feels like: ${current.feels_like}`;
+
+  document.getElementById('humidity').textContent = `Humidity: ${current.humidity}`;
+
+  document.getElementById('dew-point').textContent = `Dew Point: ${current.dew_point}`;
+
+  document.getElementById('uvi').textContent = `UV Index: ${current.uvi}`
+
+  document.getElementById('wind').textContent = `Wind Speed: ${current.wind_speed} @ ${current.wind_deg} degrees`
+
+  document.getElementById('desc').textContent = `Currently:  ${current.weather[0].description}`
+
+  document.getElementById('current-icon').src = `http://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`
+
+
+}
+
+
+// follow the template for current weather to render the remaining days of the week
+// do a for loop that iterates over the daily forecast (starting from 1 since 0 is today and the same as current)
+// within the loop render each days forecast similarly to the current but have it generate the dom elements 
+// if need be create a card in html to start and populate with data and then have js create those exact elements and delete them from the html
+
 
 // weather data that I want to pull
 //   data.current
@@ -449,22 +488,11 @@ submitBtn.addEventListener("click", function(event) {
 
 
 
-//Done
-// building urls and fetch requests
-// getting weather data back
-
-//TODO 
-// function to render data to screen (today's forecast and daily)
+// Things to do if there's time:
 // add imperial measurements to the api call (or a drop down with c or f)
+// add some flare to the page
 
-    //usability
-    // type city name and select state and country
-    // upon submit collect the city/state/country data and build out the url
-    // run the fetch and collect weather data
-    // render to screen along with 7 day forecast
-    // save lat long to memory and generate a button with the city name, state, country on screen. 
-    // upon that button press get a new forecast
-    // only save and display 10 values
 
-    //styling
-    // include icons for weather
+
+// save lat long to memory and generate a button with the city name, state, country on screen. 
+// only save and display 10 values

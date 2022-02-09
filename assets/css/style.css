@@ -22,3 +22,7 @@ select {
 #states {
     display: none;
 }
+
+#current-weather {
+    visibility: hidden;
+}
