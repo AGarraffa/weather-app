@@ -1,18 +1,17 @@
-
-form {
-    width: 25%;
+* {
+    border: 1px red solid;
 }
 
 label {
     padding: 10px;
 }
 
-/* #mySelect {
-    padding: 10px;
-} */
-
 select {
     width: 100px;
+}
+
+#city {
+    background-color: aliceblue;
 }
 
 #countries {
@@ -23,6 +22,20 @@ select {
     display: none;
 }
 
-#current-weather {
-    visibility: hidden;
+.hidden {
+    display: none ;
 }
+
+li {
+    font-weight: bold;
+}
+
+span {
+    font-weight: normal
+}
+
+.flexbox {
+    /* display: flex;
+    flex-wrap: wrap; */
+    justify-content: center;
+  }

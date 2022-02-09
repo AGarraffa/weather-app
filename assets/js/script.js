@@ -412,87 +412,79 @@ submitBtn.addEventListener("click", function(event) {
       // format for the weather icons
       // document.getElementById('wicon').src = `http://openweathermap.org/img/wn/${icon}@2x.png`
 
-      renderCurrentWeather(current);
-
+      renderCurrentWeather(current, daily);
+      renderForecast(daily)
     })
 
   }
 
-function renderCurrentWeather(current) {
+function renderCurrentWeather(current, forecast) {
   
-  document.getElementById('current-weather').style.visibility = 'visible'
+    let hiddenEl = document.querySelectorAll('.hidden');
+
+    for (var i = 0; i < hiddenEl.length; i++) {
+      
+      hiddenEl[i].style.display = 'block'
+      console.log(i)
+
+    }
 
   // renders current weather
-  document.getElementById('current-temp').textContent = `Current Temperature: ${current.temp}`;
+  document.getElementById('current-temp').textContent = current.temp;
 
-  document.getElementById('feels-like').textContent = `Feels like: ${current.feels_like}`;
+  document.getElementById('feels-like').textContent = current.feels_like;
+  
+  document.getElementById('high').textContent = forecast[0].temp.max;
 
-  document.getElementById('humidity').textContent = `Humidity: ${current.humidity}`;
+  document.getElementById('low').textContent = forecast[0].temp.min;
 
-  document.getElementById('dew-point').textContent = `Dew Point: ${current.dew_point}`;
+  document.getElementById('humidity').textContent = current.humidity;
 
-  document.getElementById('uvi').textContent = `UV Index: ${current.uvi}`
+  document.getElementById('dew-point').textContent = current.dew_point;
 
-  document.getElementById('wind').textContent = `Wind Speed: ${current.wind_speed} @ ${current.wind_deg} degrees`
+  document.getElementById('uvi').textContent = current.uvi;
 
-  document.getElementById('desc').textContent = `Currently:  ${current.weather[0].description}`
+  document.getElementById('wind').textContent = `${current.wind_speed}mph @ ${current.wind_deg} degrees`;
+
+  document.getElementById('desc').textContent = current.weather[0].description;
 
   document.getElementById('current-icon').src = `http://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`
-
 
 }
 
 
-// follow the template for current weather to render the remaining days of the week
-// do a for loop that iterates over the daily forecast (starting from 1 since 0 is today and the same as current)
-// within the loop render each days forecast similarly to the current but have it generate the dom elements 
-// if need be create a card in html to start and populate with data and then have js create those exact elements and delete them from the html
+// renders the forecast
+function renderForecast(forecast) {
 
 
-// weather data that I want to pull
-//   data.current
-// .sunrise (given in utc)
-// .sunset (given in utc)
-// .temp
-// .feels_like
-// .humidity
-// .dew point
-// .uvi
-// .wind_speed
-// .wind_deg
+  for (let i = 1; i < forecast.length; i++) {
+      
+      document.getElementById(`day${i}-high`).textContent = forecast[i].temp.max;
 
-// data.curent.weather
-// .main (use this for icons)
-// .description (description of weather)
-// .weather.icon (figure out how to use the library)
+      document.getElementById(`day${i}-low`).textContent = forecast[i].temp.min;
 
+      document.getElementById(`day${i}-humidity`).textContent = forecast[i].humidity;
 
-// data.daily[0]
-// .temp.min
-// .temp.max
-// .weather.main   (average forecast for the day)
-// .weather.description
-// .weather.icon
+      document.getElementById(`day${i}-dew-point`).textContent = forecast[i].dew_point;
+
+      document.getElementById(`day${i}-uvi`).textContent = forecast[i].dew_point;
+
+      document.getElementById(`day${i}-wind`).textContent = `${forecast[i].wind_speed}mph @ ${forecast[i].wind_deg} degrees`;
+
+      document.getElementById(`day${i}-desc`).textContent = forecast[i].weather[0].description
+
+      document.getElementById(`day${i}-icon`).src = `http://openweathermap.org/img/wn/${forecast[i].weather[0].icon}@2x.png`
+  }
 
 
+}
 
-// data.daily[1] (tomorrow etc)
-// .sunrise
-// .sunset
-// .temp.min
-// .temp.max
-// .weather.main
-// .weather.description
-// .weather.icon
-
-
-
+//TODO
+// Save seached city to local memory
+// render as clickable buttons on the right (the buttons will bring render the forecast)
+// style style style
 
 // Things to do if there's time:
 // add imperial measurements to the api call (or a drop down with c or f)
 // add some flare to the page
 
-
-
-// save lat long to memory and generate a button with the city name, state, country on screen. 
-// only save and display 10 values

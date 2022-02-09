@@ -17,34 +17,133 @@
 </head>
 <body>
 
-    <!-- html form -->
+
+  <!-- <div class="container"> -->
     <div class="row">
-      <div class="'col s4">
+      <div class="col s6 input yellow">
         <form id="form">
           <label for="city">City:</label><br>
           <input type="text" id="city" name="city" value=""><br>
           <select class="browser-default state" id="states">
           </select><br><br>
-          <select class="browser-default country" id="countries"onchange="hideState('states', this)">
+          <select class="browser-default country" id="countries" onchange="hideState('states', this)">
           </select><br><br>
-          <input type="submit" value="Submit" id="submit-btn" class="waves-effect waves-light btn-small" >
+          <input type="submit" value="Submit" id="submit-btn" class="waves-effect waves-light blue btn-small" >
         </form> 
       </div>
 
-      <div class = "container col s4" id="current-weather">
+      <div class="col s2"></div>
+
+      <!-- current weather -->
+      <div class="col s4 card today hidden">
         <h3>Current Weather</h3>
         <ul id="today-weather">
-          <li id="current-temp"></li>
-          <li id="feels-like"></li>
-          <li id="humidity"></li>
-          <li id="dew-point"></li>
-          <li id="uvi"></li>
-          <li id="wind"></li>
-          <li id="desc"></li>
-          <li id="cicon"><img id="current-icon" src="" alt="Current weather icon"></li>
+          <li>Current Temperature: <span id="current-temp"></span></li>
+          <li>Feels Like: <span id="feels-like"></span></li>
+          <li>High: <span id="high"></span></li>
+          <li>Low: <span id="low"></span></li>
+          <li>Humidity: <span id="humidity"></span></li>
+          <li>Dew Point: <span id="dew-point"></span></li>
+          <li>UV Index: <span id="uvi"></span></li>
+          <li>Wind Speed: <span id="wind"></span></li>
+          <li>Currently: <span id="desc"></span></li>
+          <li id="cicon" class="center-align"><img id="current-icon" src="" alt="Current weather icon"></li>
         </ul>
       </div>
+    </div>
+  <!-- </div> -->
 
+
+  <!-- for the 7 day forecast  -->
+    <div class="container hidden">
+      <div class="row forecast-row" id="daily">
+         <div class="flexbox"> 
+          <div class="col s12 m4 blue card">
+            <ul id="day1-weather">
+              <li>High: <span id="day1-high"></span></li>
+              <li>Low: <span id="day1-low"></span></li>
+              <li>Humidity: <span id="day1-humidity"></span></li>
+              <li>Dew Point: <span id="day1-dew-point"></span></li>
+              <li>UV Index: <span id="day1-uvi"></span></li>
+              <li>Wind Speed: <span id="day1-wind"></span></li>
+              <li>Expected: <span id="day1-desc"></span></li>
+              <li id="day1-cicon" class="center-align"><img id="day1-icon" src="" alt="Current weather icon"></li>
+            </ul>
+          </div>
+          <div class="col s12 m4 red card">
+            <ul id="day2-weather">
+              <li>High: <span id="day2-high"></span></li>
+              <li>Low: <span id="day2-low"></span></li>
+              <li>Humidity: <span id="day2-humidity"></span></li>
+              <li>Dew Point: <span id="day2-dew-point"></span></li>
+              <li>UV Index: <span id="day2-uvi"></span></li>
+              <li>Wind Speed: <span id="day2-wind"></span></li>
+              <li>Expected: <span id="day2-desc"></span></li>
+              <li id="day2-cicon" class="center-align"><img id="day2-icon" src="" alt="Current weather icon"></li>
+            </ul>
+          </div>
+          <div class="col s12 m4 blue card">
+            <ul id="day3-weather">
+              <li>High: <span id="day3-high"></span></li>
+              <li>Low: <span id="day3-low"></span></li>
+              <li>Humidity: <span id="day3-humidity"></span></li>
+              <li>Dew Point: <span id="day3-dew-point"></span></li>
+              <li>UV Index: <span id="day3-uvi"></span></li>
+              <li>Wind Speed: <span id="day3-wind"></span></li>
+              <li>Expected: <span id="day3-desc"></span></li>
+              <li id="day3-cicon" class="center-align"><img id="day3-icon" src="" alt="Current weather icon"></li>
+            </ul>
+          </div>
+          <div class="col s12 m4 red card">
+            <ul id="day4-weather">
+              <li>High: <span id="day4-high"></span></li>
+              <li>Low: <span id="day4-low"></span></li>
+              <li>Humidity: <span id="day4-humidity"></span></li>
+              <li>Dew Point: <span id="day4-dew-point"></span></li>
+              <li>UV Index: <span id="day4-uvi"></span></li>
+              <li>Wind Speed: <span id="day4-wind"></span></li>
+              <li>Expected: <span id="day4-desc"></span></li>
+              <li id="day4-cicon" class="center-align"><img id="day4-icon" src="" alt="Current weather icon"></li>
+            </ul>
+          </div>
+          <div class="col s12 m4 blue card">
+            <ul id="day5-weather">
+              <li>High: <span id="day5-high"></span></li>
+              <li>Low: <span id="day5-low"></span></li>
+              <li>Humidity: <span id="day5-humidity"></span></li>
+              <li>Dew Point: <span id="day5-dew-point"></span></li>
+              <li>UV Index: <span id="day5-uvi"></span></li>
+              <li>Wind Speed: <span id="day5-wind"></span></li>
+              <li>Expected: <span id="day5-desc"></span></li>
+              <li id="day5-cicon" class="center-align"><img id="day5-icon" src="" alt="Current weather icon"></li>
+            </ul>
+          </div>
+          <div class="col s12 m4 red card">
+            <ul id="day6-weather">
+              <li>High: <span id="day6-high"></span></li>
+              <li>Low: <span id="day6-low"></span></li>
+              <li>Humidity: <span id="day6-humidity"></span></li>
+              <li>Dew Point: <span id="day6-dew-point"></span></li>
+              <li>UV Index: <span id="day6-uvi"></span></li>
+              <li>Wind Speed: <span id="day6-wind"></span></li>
+              <li>Expected: <span id="day6-desc"></span></li>
+              <li id="day6-cicon" class="center-align"><img id="day6-icon" src="" alt="Current weather icon"></li>
+            </ul>
+          </div>
+          <div class="col s12 m4 blue card">
+            <ul id="day7-weather">
+              <li>High: <span id="day7-high"></span></li>
+              <li>Low: <span id="day7-low"></span></li>
+              <li>Humidity: <span id="day7-humidity"></span></li>
+              <li>Dew Point: <span id="day7-dew-point"></span></li>
+              <li>UV Index: <span id="day7-uvi"></span></li>
+              <li>Wind Speed: <span id="day7-wind"></span></li>
+              <li>Expected: <span id="day7-desc"></span></li>
+              <li id="day7-cicon" class="center-align"><img id="day7-icon" src="" alt="Current weather icon"></li>
+            </ul>
+          </div>
+        </div>    
+      </div>
     </div>
 
       <!-- <div id="icon"><img id="wicon" src="" alt="Weather icon"></div> -->
