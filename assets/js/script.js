@@ -2,7 +2,7 @@
 
 // setting up the openweathermap url
 const key = 'e1eb99be58f229feb0f00b803ac936d3';
-let apiUrl = 'http://api.openweathermap.org/';
+let apiUrl = 'https://api.openweathermap.org/';
 let city = '';
 let state = '';
 let country = '';
