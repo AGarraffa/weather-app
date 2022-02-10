@@ -1,5 +1,6 @@
-* {
-    border: 1px red solid;
+
+.header {
+    text-align: center;
 }
 
 label {
@@ -15,7 +16,7 @@ select {
 }
 
 #countries {
-    width: 420px;
+    width: 100%;
 }
 
 #states {
@@ -34,8 +35,7 @@ span {
     font-weight: normal
 }
 
-.flexbox {
-    /* display: flex;
-    flex-wrap: wrap; */
-    justify-content: center;
+
+  .search-history {
+    visibility: hidden;
   }

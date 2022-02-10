@@ -17,13 +17,30 @@
 </head>
 <body>
 
+  <h1 class="header">The Weather!!!</h1>
 
-  <!-- <div class="container"> -->
+
+  <div class="container">
     <div class="row">
-      <div class="col s6 input yellow">
+      <!-- history here -->
+      <div class="col s3">
+        <button class= "col s12 search-history history-btn" id="city0"></button>
+        <button class= "col s12 search-history history-btn" id="city1"></button>
+        <button class= "col s12 search-history history-btn" id="city2"></button>
+        <button class= "col s12 search-history history-btn" id="city3"></button>
+        <button class= "col s12 search-history history-btn" id="city4"></button>
+        <button class= "col s12 search-history history-btn" id="city5"></button>
+        <button class= "col s12 search-history history-btn" id="city6"></button>
+        <button class= "col s12 search-history history-btn" id="city7"></button>
+        <button class= "col s12 search-history history-btn" id="city8"></button>
+        <button class= "col s12 search-history history-btn" id="city9"></button>
+      </div>
+
+      <!-- input -->
+      <div class="col s4 input yellow">
         <form id="form">
-          <label for="city">City:</label><br>
-          <input type="text" id="city" name="city" value=""><br>
+          <label for="city"></label><br>
+          <input type="text" id="city" name="city" value="City"><br>
           <select class="browser-default state" id="states">
           </select><br><br>
           <select class="browser-default country" id="countries" onchange="hideState('states', this)">
@@ -32,10 +49,10 @@
         </form> 
       </div>
 
-      <div class="col s2"></div>
+      <div class="col s1"></div>
 
       <!-- current weather -->
-      <div class="col s4 card today hidden">
+      <div class="col s3 card today hidden">
         <h3>Current Weather</h3>
         <ul id="today-weather">
           <li>Current Temperature: <span id="current-temp"></span></li>
@@ -51,13 +68,13 @@
         </ul>
       </div>
     </div>
-  <!-- </div> -->
+  </div>
 
 
-  <!-- for the 7 day forecast  -->
+ <!-- make rows for each column group -->
+  <!-- 7 day forecast  -->
     <div class="container hidden">
-      <div class="row forecast-row" id="daily">
-         <div class="flexbox"> 
+      <div class="row">
           <div class="col s12 m4 blue card">
             <ul id="day1-weather">
               <li>High: <span id="day1-high"></span></li>
@@ -94,6 +111,8 @@
               <li id="day3-cicon" class="center-align"><img id="day3-icon" src="" alt="Current weather icon"></li>
             </ul>
           </div>
+        </div>
+        <div class="row">
           <div class="col s12 m4 red card">
             <ul id="day4-weather">
               <li>High: <span id="day4-high"></span></li>
@@ -130,6 +149,9 @@
               <li id="day6-cicon" class="center-align"><img id="day6-icon" src="" alt="Current weather icon"></li>
             </ul>
           </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m4"></div>
           <div class="col s12 m4 blue card">
             <ul id="day7-weather">
               <li>High: <span id="day7-high"></span></li>
@@ -142,18 +164,18 @@
               <li id="day7-cicon" class="center-align"><img id="day7-icon" src="" alt="Current weather icon"></li>
             </ul>
           </div>
-        </div>    
-      </div>
+          <div class="col s12 m4"></div>
+        </div>
+      </div>    
     </div>
 
-      <!-- <div id="icon"><img id="wicon" src="" alt="Weather icon"></div> -->
 
 
-
-
-      
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
+
+    <!-- script for the larger objects -->
+    <script src="./assets/js/objects.js"></script>
+
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
