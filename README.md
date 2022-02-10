@@ -8,6 +8,8 @@ The user enters the city and country (and state if in the US) and the current we
 ## Current development: 
 - formatting and styling
 - adding functionality to the search history buttons
-- 
+- adding an option for metric
+- have the city field clear when the user clicks on it
+- add images to the readme
 
 app is deployed at: https://agarraffa.github.io/weather-app/
