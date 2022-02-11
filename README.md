@@ -16,7 +16,6 @@ The forecast colors will change based on the temperatures for the day
 
 ## Future development: 
 - formatting and styling
-- adding an option for metric
-- better formatting for the forecast (ie have the forecast displayed all to the right rather than having to scroll down)
+- adding an option for metric)
 
 app is deployed at: https://agarraffa.github.io/weather-app/

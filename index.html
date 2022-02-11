@@ -25,39 +25,39 @@
   <h1 class="header">The Weather!!!</h1>
 
 
-  <div class="container">
+  <!-- <div class="container"> -->
     <div class="row">
       <!-- history here -->
       <div class="col s3">
-        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city0"></button><br class="test">
-        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city1"></button><br>
-        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city2"></button><br>
-        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city3"></button><br>
-        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city4"></button><br>
-        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city5"></button><br>
-        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city6"></button><br>
-        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city7"></button><br>
-        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city8"></button><br>
-        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city9"></button><br>
-      </div>
 
-      <!-- input -->
-      <div class="col s4 input">
-        <form id="form">
-          <label for="city"></label><br>
-          <input type="text" id="city" name="city" onfocus="this.value=''" value="City"><br>
-          <select class="browser-default state" id="states">
-          </select><br><br>
-          <select class="browser-default country" id="countries" onchange="hideState('states', this)">
-          </select><br><br>
-          <input type="submit" value="Submit" id="submit-btn" class="waves-effect waves-light blue btn-small" >
-        </form> 
+        <div class="input">
+          <form id="form">
+            <label for="city"></label><br>
+            <input type="text" id="city" name="city" onfocus="this.value=''" value="City" class="inner-form"><br>
+            <select class="browser-default state inner-form" id="states">
+            </select><br><br>
+            <select class="browser-default country" id="countries" onchange="hideState('states', this)" class="inner-form">
+            </select><br><br>
+            <input type="submit" value="Submit" id="submit-btn" class="waves-effect waves-light blue btn-small" >
+          </form> 
+        </div>
+
+        <button class= "col s6 search-history history-btn waves-effect waves-light" id="city0"></button><br class="test">
+        <button class= "col s6 search-history history-btn waves-effect waves-light" id="city1"></button><br>
+        <button class= "col s6 search-history history-btn waves-effect waves-light" id="city2"></button><br>
+        <button class= "col s6 search-history history-btn waves-effect waves-light" id="city3"></button><br>
+        <button class= "col s6 search-history history-btn waves-effect waves-light" id="city4"></button><br>
+        <button class= "col s6 search-history history-btn waves-effect waves-light" id="city5"></button><br>
+        <button class= "col s6 search-history history-btn waves-effect waves-light" id="city6"></button><br>
+        <button class= "col s6 search-history history-btn waves-effect waves-light" id="city7"></button><br>
+        <button class= "col s6 search-history history-btn waves-effect waves-light" id="city8"></button><br>
+        <button class= "col s6 search-history history-btn waves-effect waves-light" id="city9"></button><br>
       </div>
 
       <div class="col s1"></div>
 
       <!-- current weather -->
-      <div class="col s4 card today hidden" id="current">
+      <div class="col s8 card today hidden" id="current">
         <h3>Current Weather</h3>
         <ul id="today-weather">
           <li>Current Temperature: <span id="current-temp"></span></li>
@@ -69,11 +69,11 @@
           <li>UV Index: <span id="uvi"></span></li>
           <li>Wind Speed: <span id="wind"></span></li>
           <li>Currently: <span id="desc"></span></li>
-          <li id="cicon" class="center-align"><img id="current-icon" src="" alt="Current weather icon"></li>
+          <li id="cicon"><img id="current-icon" src="" alt="Current weather icon"></li>
         </ul>
       </div>
     </div>
-  </div>
+  <!-- </div> -->
 
   <div class="break"></div>
 
@@ -82,7 +82,8 @@
   <!-- 7 day forecast  -->
     <div class="container hidden forecast">
       <div class="row">
-          <div class="col s12 m4 card" id="day-1-card">
+          <div class="col s12 mforecast-card card" id="day-1-card">
+            
             <ul>
               <h3 id="day1-weather"></h3>
               <li>High: <span id="day1-high"></span></li>
@@ -95,7 +96,10 @@
               <li id="day1-cicon" class="center-align"><img id="day1-icon" src="" alt="Current weather icon"></li>
             </ul>
           </div>
-          <div class="col s12 m4 card" id="day-2-card">
+
+          <div class="col mgap"></div>
+
+          <div class="col s12 mforecast-card card" id="day-2-card">
             <ul>
               <h3 id="day2-weather"></h3>
               <li>High: <span id="day2-high"></span></li>
@@ -108,7 +112,10 @@
               <li id="day2-cicon" class="center-align"><img id="day2-icon" src="" alt="Current weather icon"></li>
             </ul>
           </div>
-          <div class="col s12 m4 card" id="day-3-card">
+
+          <div class="col mgap"></div>
+  
+          <div class="col s12 mforecast-card card" id="day-3-card">
             <ul>
               <h3 id="day3-weather"></h3>
               <li>High: <span id="day3-high"></span></li>
@@ -121,9 +128,10 @@
               <li id="day3-cicon" class="center-align"><img id="day3-icon" src="" alt="Current weather icon"></li>
             </ul>
           </div>
-        </div>
-        <div class="row">
-          <div class="col s12 m4 card" id="day-4-card">
+
+          <div class="col mgap"></div>
+
+          <div class="col s12 mforecast-card card" id="day-4-card">
             <ul>
               <h3 id="day4-weather"></h3>
               <li>High: <span id="day4-high"></span></li>
@@ -136,7 +144,10 @@
               <li id="day4-cicon" class="center-align"><img id="day4-icon" src="" alt="Current weather icon"></li>
             </ul>
           </div>
-          <div class="col s12 m4 card" id="day-5-card">
+
+          <div class="col mgap"></div>
+
+          <div class="col s12 mforecast-card card" id="day-5-card">
             <ul>
               <h3 id="day5-weather"></h3>
               <li>High: <span id="day5-high"></span></li>
@@ -149,39 +160,9 @@
               <li id="day5-cicon" class="center-align"><img id="day5-icon" src="" alt="Current weather icon"></li>
             </ul>
           </div>
-          <div class="col s12 m4 card" id="day-6-card">
-            <ul>
-              <h3 id="day6-weather"></h3>
-              <li>High: <span id="day6-high"></span></li>
-              <li>Low: <span id="day6-low"></span></li>
-              <li>Humidity: <span id="day6-humidity"></span></li>
-              <li>Dew Point: <span id="day6-dew-point"></span></li>
-              <li>UV Index: <span id="day6-uvi"></span></li>
-              <li>Wind Speed: <span id="day6-wind"></span></li>
-              <li>Expected: <span id="day6-desc"></span></li>
-              <li id="day6-cicon" class="center-align"><img id="day6-icon" src="" alt="Current weather icon"></li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col s12 m4"></div>
-          <div class="col s12 m4 card" id="day-7-card">
-            <ul>
-              <h3 id="day7-weather"></h3>
-              <li>High: <span id="day7-high"></span></li>
-              <li>Low: <span id="day7-low"></span></li>
-              <li>Humidity: <span id="day7-humidity"></span></li>
-              <li>Dew Point: <span id="day7-dew-point"></span></li>
-              <li>UV Index: <span id="day7-uvi"></span></li>
-              <li>Wind Speed: <span id="day7-wind"></span></li>
-              <li>Expected: <span id="day7-desc"></span></li>
-              <li id="day7-cicon" class="center-align"><img id="day7-icon" src="" alt="Current weather icon"></li>
-            </ul>
-          </div>
-          <div class="col s12 m4"></div>
         </div>
       </div>    
-    </div>
+   
 
 
 

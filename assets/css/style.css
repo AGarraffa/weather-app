@@ -9,12 +9,18 @@
     --warm4: #DF7861;
 }
 
+* {
+    border: 1px, solid, red;
+}
+
 body {
     font-family: 'Bebas Neue', cursive;
 }
 
-label {
-    padding: 10px;
+
+#submit-btn {
+    font-family: 'Bebas Neue', cursive;
+    border-radius: 10px;
 }
 
 select {
@@ -29,6 +35,11 @@ span {
     font-weight: normal;
 }
 
+form {
+    background-color: var(--cold3);
+    font-family: 'Bebas Neue', cursive;
+    border-radius: 10px;
+}
 
 .header {
     text-align: center;
@@ -46,10 +57,8 @@ span {
     border-radius: 10px;
 }
 
-.input {
-    background-color: var(--cold3);
-    font-family: 'Bebas Neue', cursive;
-    border-radius: 10px;
+.inner-form {
+    width: 85%;
 }
 
 .today { 
@@ -102,4 +111,56 @@ span {
 
 #states {
     display: none;
+}
+
+/* used to change the column width to accomodate the 5 day forecast */
+.sforecast-card,
+.mforecast-card,
+.lforecast-card,
+.xlforecast-card,
+.sgap,
+.mgap,
+.lgap,
+.xlgap {
+  margin-left: auto;
+  left: auto;
+  right: auto;
+}
+
+.row .col.sforecast-card {
+  width: 17.5%;
+}
+
+.row .col.sgap {
+    width: 3.125%;
+}
+
+@media only screen and (min-width: 601px) {
+  .row .col.mgap {
+    width: 3.125%;
+  }
+
+  .row .col.mforecast-card {
+    width: 17.5%;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .row .col.lgap {
+    width: 3.125%;
+  }
+
+  .row .col.lforecast-card {
+    width: 17.5%;
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  .row .col.xlgap {
+    width: 3.125%;
+  }
+
+  .row .col.xlforecast-card {
+    width: 17.5%;
+  }
 }

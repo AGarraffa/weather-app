@@ -193,49 +193,49 @@ function renderCurrentWeather(current, forecast) {
 
   if (forecast[0].temp.max <= 0) {
 
-    document.getElementById('current').classList.add('cold-4')
+    document.getElementById('current').className = 'col s8 card today hidden cold-4'
 
   }
 
   if ((forecast[0].temp.max > 0) && (forecast[0].temp.max <= 15) ) {
 
-    document.getElementById('current').classList.add('cold-3')
+    document.getElementById('current').className = 'col s8 card today hidden cold-3'
 
   }
 
   if ((forecast[0].temp.max > 15) && (forecast[0].temp.max <= 40) ) {
 
-    document.getElementById('current').classList.add('cold-2')
+    document.getElementById('current').className = 'col s8 card today hidden cold-2'
 
   }
 
   if ((forecast[0].temp.max > 40) && (forecast[0].temp.max <= 50) ) {
 
-    document.getElementById('current').classList.add('cold-1')
+    document.getElementById('current').className = 'col s8 card today hidden cold-1'
 
   }
 
   if ((forecast[0].temp.max > 50) && (forecast[0].temp.max <= 65) ) {
 
-    document.getElementById('current').classList.add('warm-1')
+    document.getElementById('current').className = 'col s8 card today hidden warm-1'
 
   }
 
   if ((forecast[0].temp.max > 65) && (forecast[0].temp.max <= 75) ) {
 
-    document.getElementById('current').classList.add('warm-2')
+    document.getElementById('current').className = 'col s8 card today hidden warm-2'
 
   }
 
   if ((forecast[0].temp.max > 75) && (forecast[0].temp.max <= 90) ) {
 
-    document.getElementById('current').classList.add('warm-3')
+    document.getElementById('current').className = 'col s8 card today hidden warm-3'
 
   }
 
   if (forecast[0].temp.max > 90) {
 
-    document.getElementById('current').classList.add('warm-4')
+    document.getElementById('current').className = 'col s8 card today hidden warm-4'
 
   }
 
@@ -248,8 +248,10 @@ function renderForecast(forecast) {
   let date = new Date();
 
 
-  for (let i = 1; i < forecast.length; i++) {
-      
+  // for (let i = 1; i < forecast.length; i++) {
+  for (let i = 1; i < 6; i++) {  
+
+
     date.setDate(date.getDate() + 1);
     
     console.log(date.toLocaleDateString('en-us', {weekday: 'long'}))
@@ -277,49 +279,48 @@ function renderForecast(forecast) {
     // changes the background color based on the temperature
       if (forecast[i].temp.max <= 0) {
 
-        document.getElementById(`day-${i}-card`).classList.add('cold-4')
+        document.getElementById(`day-${i}-card`).className = 'col s12 mforecast-card card cold-4'
 
       }
 
       if ((forecast[i].temp.max > 0) && (forecast[i].temp.max <= 15) ) {
 
-        document.getElementById(`day-${i}-card`).classList.add('cold-3')
+        document.getElementById(`day-${i}-card`).className = 'col s12 mforecast-card card cold-3'
 
       }
 
       if ((forecast[i].temp.max > 15) && (forecast[i].temp.max <= 40) ) {
 
-        document.getElementById(`day-${i}-card`).classList.add('cold-2')
+        document.getElementById(`day-${i}-card`).className = 'col s12 mforecast-card card cold-2'
 
       }
 
       if ((forecast[i].temp.max > 40) && (forecast[i].temp.max <= 50) ) {
 
-        document.getElementById(`day-${i}-card`).classList.add('cold-1')
+        document.getElementById(`day-${i}-card`).className = 'col s12 mforecast-card card cold-1'
 
       }
 
       if ((forecast[i].temp.max > 50) && (forecast[i].temp.max <= 65) ) {
 
-        document.getElementById(`day-${i}-card`).classList.add('warm-1')
-
+        document.getElementById(`day-${i}-card`).className = 'col s12 mforecast-card card warm-1'
       }
 
       if ((forecast[i].temp.max > 65) && (forecast[i].temp.max <= 75) ) {
 
-        document.getElementById(`day-${i}-card`).classList.add('warm-2')
+        document.getElementById(`day-${i}-card`).className = 'col s12 mforecast-card card warm-2'
 
       }
 
       if ((forecast[i].temp.max > 75) && (forecast[i].temp.max <= 90) ) {
 
-        document.getElementById(`day-${i}-card`).classList.add('warm-3')
+        document.getElementById(`day-${i}-card`).className = 'col s12 mforecast-card card warm-3'
 
       }
 
       if (forecast[i].temp.max > 90) {
 
-        document.getElementById(`day-${i}-card`).classList.add('warm-4')
+        document.getElementById(`day-${i}-card`).className = 'col s12 mforecast-card card warm-4'
 
       }
 
