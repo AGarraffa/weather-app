@@ -43,8 +43,8 @@ for (let i = 0; i < countryData.length; i++) {
     option.value = i;
 }
 
-
 renderHistory();
+
 
 // I moved the US to the first option; when I tried to have it as the default, I couldn't figure out how to get the states back when they were hidden/not displayed
 function hideState(Id, element)
@@ -188,7 +188,56 @@ function renderCurrentWeather(current, forecast) {
 
   document.getElementById('desc').textContent = current.weather[0].description;
 
-  document.getElementById('current-icon').src = `http://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`
+  document.getElementById('current-icon').src = `http://openweathermap.org/img/wn/${current.weather[0].icon}.png`
+
+
+  if (forecast[0].temp.max <= 0) {
+
+    document.getElementById('current').classList.add('cold-4')
+
+  }
+
+  if ((forecast[0].temp.max > 0) && (forecast[0].temp.max <= 15) ) {
+
+    document.getElementById('current').classList.add('cold-3')
+
+  }
+
+  if ((forecast[0].temp.max > 15) && (forecast[0].temp.max <= 40) ) {
+
+    document.getElementById('current').classList.add('cold-2')
+
+  }
+
+  if ((forecast[0].temp.max > 40) && (forecast[0].temp.max <= 50) ) {
+
+    document.getElementById('current').classList.add('cold-1')
+
+  }
+
+  if ((forecast[0].temp.max > 50) && (forecast[0].temp.max <= 65) ) {
+
+    document.getElementById('current').classList.add('warm-1')
+
+  }
+
+  if ((forecast[0].temp.max > 65) && (forecast[0].temp.max <= 75) ) {
+
+    document.getElementById('current').classList.add('warm-2')
+
+  }
+
+  if ((forecast[0].temp.max > 75) && (forecast[0].temp.max <= 90) ) {
+
+    document.getElementById('current').classList.add('warm-3')
+
+  }
+
+  if (forecast[0].temp.max > 90) {
+
+    document.getElementById('current').classList.add('warm-4')
+
+  }
 
 }
 
@@ -196,9 +245,18 @@ function renderCurrentWeather(current, forecast) {
 // renders the forecast
 function renderForecast(forecast) {
 
+  let date = new Date();
+
 
   for (let i = 1; i < forecast.length; i++) {
       
+    date.setDate(date.getDate() + 1);
+    
+    console.log(date.toLocaleDateString('en-us', {weekday: 'long'}))
+
+      document.getElementById(`day${i}-weather`).textContent = date.toLocaleDateString('en-us', {weekday: 'long'})
+
+
       document.getElementById(`day${i}-high`).textContent = forecast[i].temp.max;
 
       document.getElementById(`day${i}-low`).textContent = forecast[i].temp.min;
@@ -213,7 +271,58 @@ function renderForecast(forecast) {
 
       document.getElementById(`day${i}-desc`).textContent = forecast[i].weather[0].description
 
-      document.getElementById(`day${i}-icon`).src = `http://openweathermap.org/img/wn/${forecast[i].weather[0].icon}@2x.png`
+      document.getElementById(`day${i}-icon`).src = `http://openweathermap.org/img/wn/${forecast[i].weather[0].icon}.png`
+
+
+    // changes the background color based on the temperature
+      if (forecast[i].temp.max <= 0) {
+
+        document.getElementById(`day-${i}-card`).classList.add('cold-4')
+
+      }
+
+      if ((forecast[i].temp.max > 0) && (forecast[i].temp.max <= 15) ) {
+
+        document.getElementById(`day-${i}-card`).classList.add('cold-3')
+
+      }
+
+      if ((forecast[i].temp.max > 15) && (forecast[i].temp.max <= 40) ) {
+
+        document.getElementById(`day-${i}-card`).classList.add('cold-2')
+
+      }
+
+      if ((forecast[i].temp.max > 40) && (forecast[i].temp.max <= 50) ) {
+
+        document.getElementById(`day-${i}-card`).classList.add('cold-1')
+
+      }
+
+      if ((forecast[i].temp.max > 50) && (forecast[i].temp.max <= 65) ) {
+
+        document.getElementById(`day-${i}-card`).classList.add('warm-1')
+
+      }
+
+      if ((forecast[i].temp.max > 65) && (forecast[i].temp.max <= 75) ) {
+
+        document.getElementById(`day-${i}-card`).classList.add('warm-2')
+
+      }
+
+      if ((forecast[i].temp.max > 75) && (forecast[i].temp.max <= 90) ) {
+
+        document.getElementById(`day-${i}-card`).classList.add('warm-3')
+
+      }
+
+      if (forecast[i].temp.max > 90) {
+
+        document.getElementById(`day-${i}-card`).classList.add('warm-4')
+
+      }
+
   }
 
 
@@ -232,6 +341,22 @@ function renderHistory(){
     }
   }
   
+
+// assigns an event listener to each of the history buttons linking the correct lat and lon
+for (let i = 0; i < recentCity.length; i++) {
+
+document.getElementById(`city${i}`).addEventListener('click', function(event) {
+  
+  // makes sure the recentCity array is up to date
+  recentCity = JSON.parse(localStorage.getItem('searchHistory'))
+
+  // gets weather from the selected button
+  getWeather(recentCity[i].lat, recentCity[i].lon);
+
+});
+
+}
+
 
 //TODO
 // make the search history clickable to get the weather for that city

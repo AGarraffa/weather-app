@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather Dashboard</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css
     ">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./assets/css/style.css">
 
 
 </head>
 <body>
+
 
   <h1 class="header">The Weather!!!</h1>
 
@@ -24,23 +29,23 @@
     <div class="row">
       <!-- history here -->
       <div class="col s3">
-        <button class= "col s12 search-history history-btn" id="city0"></button>
-        <button class= "col s12 search-history history-btn" id="city1"></button>
-        <button class= "col s12 search-history history-btn" id="city2"></button>
-        <button class= "col s12 search-history history-btn" id="city3"></button>
-        <button class= "col s12 search-history history-btn" id="city4"></button>
-        <button class= "col s12 search-history history-btn" id="city5"></button>
-        <button class= "col s12 search-history history-btn" id="city6"></button>
-        <button class= "col s12 search-history history-btn" id="city7"></button>
-        <button class= "col s12 search-history history-btn" id="city8"></button>
-        <button class= "col s12 search-history history-btn" id="city9"></button>
+        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city0"></button><br class="test">
+        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city1"></button><br>
+        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city2"></button><br>
+        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city3"></button><br>
+        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city4"></button><br>
+        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city5"></button><br>
+        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city6"></button><br>
+        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city7"></button><br>
+        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city8"></button><br>
+        <button class= "col s12 search-history history-btn waves-effect waves-light" id="city9"></button><br>
       </div>
 
       <!-- input -->
-      <div class="col s4 input yellow">
+      <div class="col s4 input">
         <form id="form">
           <label for="city"></label><br>
-          <input type="text" id="city" name="city" value="City"><br>
+          <input type="text" id="city" name="city" onfocus="this.value=''" value="City"><br>
           <select class="browser-default state" id="states">
           </select><br><br>
           <select class="browser-default country" id="countries" onchange="hideState('states', this)">
@@ -52,7 +57,7 @@
       <div class="col s1"></div>
 
       <!-- current weather -->
-      <div class="col s3 card today hidden">
+      <div class="col s4 card today hidden" id="current">
         <h3>Current Weather</h3>
         <ul id="today-weather">
           <li>Current Temperature: <span id="current-temp"></span></li>
@@ -70,13 +75,16 @@
     </div>
   </div>
 
+  <div class="break"></div>
+
 
  <!-- make rows for each column group -->
   <!-- 7 day forecast  -->
-    <div class="container hidden">
+    <div class="container hidden forecast">
       <div class="row">
-          <div class="col s12 m4 blue card">
-            <ul id="day1-weather">
+          <div class="col s12 m4 card" id="day-1-card">
+            <ul>
+              <h3 id="day1-weather"></h3>
               <li>High: <span id="day1-high"></span></li>
               <li>Low: <span id="day1-low"></span></li>
               <li>Humidity: <span id="day1-humidity"></span></li>
@@ -87,8 +95,9 @@
               <li id="day1-cicon" class="center-align"><img id="day1-icon" src="" alt="Current weather icon"></li>
             </ul>
           </div>
-          <div class="col s12 m4 red card">
-            <ul id="day2-weather">
+          <div class="col s12 m4 card" id="day-2-card">
+            <ul>
+              <h3 id="day2-weather"></h3>
               <li>High: <span id="day2-high"></span></li>
               <li>Low: <span id="day2-low"></span></li>
               <li>Humidity: <span id="day2-humidity"></span></li>
@@ -99,8 +108,9 @@
               <li id="day2-cicon" class="center-align"><img id="day2-icon" src="" alt="Current weather icon"></li>
             </ul>
           </div>
-          <div class="col s12 m4 blue card">
-            <ul id="day3-weather">
+          <div class="col s12 m4 card" id="day-3-card">
+            <ul>
+              <h3 id="day3-weather"></h3>
               <li>High: <span id="day3-high"></span></li>
               <li>Low: <span id="day3-low"></span></li>
               <li>Humidity: <span id="day3-humidity"></span></li>
@@ -113,8 +123,9 @@
           </div>
         </div>
         <div class="row">
-          <div class="col s12 m4 red card">
-            <ul id="day4-weather">
+          <div class="col s12 m4 card" id="day-4-card">
+            <ul>
+              <h3 id="day4-weather"></h3>
               <li>High: <span id="day4-high"></span></li>
               <li>Low: <span id="day4-low"></span></li>
               <li>Humidity: <span id="day4-humidity"></span></li>
@@ -125,8 +136,9 @@
               <li id="day4-cicon" class="center-align"><img id="day4-icon" src="" alt="Current weather icon"></li>
             </ul>
           </div>
-          <div class="col s12 m4 blue card">
-            <ul id="day5-weather">
+          <div class="col s12 m4 card" id="day-5-card">
+            <ul>
+              <h3 id="day5-weather"></h3>
               <li>High: <span id="day5-high"></span></li>
               <li>Low: <span id="day5-low"></span></li>
               <li>Humidity: <span id="day5-humidity"></span></li>
@@ -137,8 +149,9 @@
               <li id="day5-cicon" class="center-align"><img id="day5-icon" src="" alt="Current weather icon"></li>
             </ul>
           </div>
-          <div class="col s12 m4 red card">
-            <ul id="day6-weather">
+          <div class="col s12 m4 card" id="day-6-card">
+            <ul>
+              <h3 id="day6-weather"></h3>
               <li>High: <span id="day6-high"></span></li>
               <li>Low: <span id="day6-low"></span></li>
               <li>Humidity: <span id="day6-humidity"></span></li>
@@ -152,8 +165,9 @@
         </div>
         <div class="row">
           <div class="col s12 m4"></div>
-          <div class="col s12 m4 blue card">
-            <ul id="day7-weather">
+          <div class="col s12 m4 card" id="day-7-card">
+            <ul>
+              <h3 id="day7-weather"></h3>
               <li>High: <span id="day7-high"></span></li>
               <li>Low: <span id="day7-low"></span></li>
               <li>Humidity: <span id="day7-humidity"></span></li>

@@ -1,6 +1,16 @@
+:root {
+    --cold1: #F4EEFF;
+    --cold2: #DCD6F7;
+    --cold3: #A6B1E1;
+    --cold4: #424874;
+    --warm1: #FCF8E8;
+    --warm2: #ECDFC8;
+    --warm3: #ECB390;
+    --warm4: #DF7861;
+}
 
-.header {
-    text-align: center;
+body {
+    font-family: 'Bebas Neue', cursive;
 }
 
 label {
@@ -8,7 +18,78 @@ label {
 }
 
 select {
-    width: 100px;
+    width: 25%;
+}
+
+li {
+    font-weight: bold;
+}
+
+span {
+    font-weight: normal;
+}
+
+
+.header {
+    text-align: center;
+    background-image: linear-gradient(to right, var(--cold4) , var(--cold3), var(--cold2), var(--cold1), var(--warm1), var(--warm2), var(--warm3), var(--warm4));
+}
+
+.hidden {
+    display: none ;
+}
+
+.search-history {
+    visibility: hidden;
+    background-color: var(--warm2);
+    font-family: 'Bebas Neue', cursive;
+    border-radius: 10px;
+}
+
+.input {
+    background-color: var(--cold3);
+    font-family: 'Bebas Neue', cursive;
+    border-radius: 10px;
+}
+
+.today { 
+      font-size: 1.3rem;
+}
+
+.forecast {
+    font-size: 1.15rem;
+}
+
+.cold-1 {
+      background-color: var(--cold1);
+}
+  
+.cold-2 {
+    background-color: var(--cold2);
+}
+
+.cold-3 {
+    background-color: var(--cold3);
+}
+
+.cold-4 {
+    background-color: var(--cold4);
+}
+
+.warm-1 {
+    background-color: var(--warm1);
+}
+
+.warm-2 {
+    background-color: var(--warm2);
+}
+
+.warm-3 {
+    background-color: var(--warm3);
+}
+
+.warm-4 {
+    background-color: var(--warm4);
 }
 
 #city {
@@ -22,20 +103,3 @@ select {
 #states {
     display: none;
 }
-
-.hidden {
-    display: none ;
-}
-
-li {
-    font-weight: bold;
-}
-
-span {
-    font-weight: normal
-}
-
-
-  .search-history {
-    visibility: hidden;
-  }
